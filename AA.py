@@ -17,13 +17,16 @@ clientes= ["jose carlos de souza","lindalva silva nobrega","ricardo sergio perez
     "beatriz costa soares","gustavo fernandes moraes","vanessa machado dias","eduardo pires campos",
     "carla fonseca araujo","ricardo teixeira matos", "natalia mendonca reis","tiago brito figueiredo",
     "isabela cardoso vieira","sergio ramos almeida","maria","maria","maria","maria","maria","maria","maria"]
-cardapio= ['01 cafe expresso    5,00', '02 capuccino    8,00', '03 panqueca    12,00', '04 tapioca   6,00']
+
+cardapio= ['01 cafe expresso     5,00   |   02 capuccino         8,00','03 latte            10,00   |   04 cha verde         5,00',
+           '05 bubble tea       17,00   |   06 mocha            15,00', '07 chocolate quente  7,00   |   08 cafe gelado       5,00',
+           '09 panqueca         12,00   |   10 tapioca           6,00', '11 pão na chapa      4,00   |   12 croissant        12,00']
 escolha = ' '
 fim= True
 certeza_bool = True
 certeza_int = 0
 nome = ''
-celular_coffee = '+5511999999999'
+celular_coffee = '+5511999999999' #insira seu numero de telefone para testes
 
 while fim:
     
@@ -39,11 +42,9 @@ while fim:
         if lst_menu==1:
             for x in cardapio:
                 print('\n' + x)
-                print('para')
-            print('\n')
 
             while certeza_bool== True:
-                escolha = str(input('Digite sua escolha: '))
+                escolha = str(input('\nDigite sua escolha: '))
                 print('revisar pedido: ' + escolha)
                 print('\nDigite 1 para confirmar')
                 certeza_int = int(input())
@@ -53,8 +54,11 @@ while fim:
 
             print('\nDigite seu nome completo para obter pontos de fidelidade')
             clientes.append(input())
+            print('aguarde seu pedido ser processado')
+            ult_ped = clientes[-1]
+            mensagem = ult_ped + ' pediu ' + escolha
+            kit.sendwhatmsg_instantly(celular_coffee,mensagem,wait_time=17,tab_close=True)
             print('pedido concluido')
-            kit.sendwhatmsg_instantly(celular_coffee,escolha,wait_time=15,tab_close=True)
             time.sleep(2)
 
     elif lst_menu== 2:
