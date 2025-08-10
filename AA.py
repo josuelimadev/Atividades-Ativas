@@ -58,7 +58,7 @@ while fim:
             ult_ped = clientes[-1]
             mensagem = ult_ped + ' pediu ' + escolha
             kit.sendwhatmsg_instantly(celular_coffee,mensagem,wait_time=17,tab_close=True)
-            print('pedido concluido')
+            print('pedido concluido, se dirija ao caixa para efetuar o pagamento')
             time.sleep(2)
 
     elif lst_menu== 2:
